@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Надежда Кравченко](https://up.htmlacademy.ru/javascript/32/user/1488455).
-* Наставник: `Неизвестно`.
+* Наставник: [Евгений Лепёшкин](https://htmlacademy.ru/profile/spearance).
 
 ---
 
