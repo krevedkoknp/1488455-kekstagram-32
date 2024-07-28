@@ -1,12 +1,20 @@
 const PICTURE_COUNT = 25;
-const LIKE_MIN_COUNT = 15;
-const LIKE_MAX_COUNT = 200;
-const COMMENT_MIN_COUNT = 0;
-const COMMENT_MAX_COUNT = 30;
-const AVATAR_MIN_COUNT = 1;
-const AVATAR_MAX_COUNT = 6;
-const MESSAGE_MIN_COUNT = 1;
-const MESSAGE_MAX_COUNT = 2;
+const Likes = {
+  MIN: 15,
+  MAX: 200
+};
+const Comments_count = {
+  MIN: 0,
+  MAX: 30
+};
+const Avatar = {
+  MIN: 1,
+  MAX: 6
+};
+const Messages = {
+  MIN: 1,
+  MAX: 2
+};
 const COMMENTS_LINES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.' ,
@@ -53,13 +61,13 @@ const createIdGenerator = () => {
 const generateRandomId = createIdGenerator();
 
 const createMessage = () => Array.from(
-  {length: getRandomInteger(MESSAGE_MIN_COUNT, MESSAGE_MAX_COUNT)},
+  {length: getRandomInteger(Messages.MIN, Messages.MAX)},
   () => getRandomArrayElement(COMMENTS_LINES),
 );
 
 const createComment = () => ({
   id: generateRandomId(),
-  avatar: `img/avatar-${getRandomInteger(AVATAR_MIN_COUNT, AVATAR_MAX_COUNT)}.svg`,
+  avatar: `img/avatar-${getRandomInteger(Avatar.MIN, Avatar.MAX)}.svg`,
   message: createMessage(),
   name: getRandomArrayElement(NAMES),
 });
@@ -68,9 +76,9 @@ const createPicture = (index) => ({
   id: index,
   url: `photos/${index}.jpg`,
   description: getRandomArrayElement(DESCRIPTION),
-  likes: getRandomInteger(LIKE_MIN_COUNT, LIKE_MAX_COUNT),
+  likes: getRandomInteger(Likes.MIN, Likes.MAX),
   comments: Array.from(
-    {length: getRandomInteger(COMMENT_MIN_COUNT, COMMENT_MAX_COUNT)},
+    {length: getRandomInteger(Comments_count.MIN, Comments_count.MAX)},
     createComment
   ),
 });
@@ -81,3 +89,4 @@ const getPictures = () => Array.from(
 );
 getPictures();
 
+console.log(getPictures());
