@@ -3,7 +3,7 @@ const Likes = {
   MIN: 15,
   MAX: 200
 };
-const Comments_count = {
+const CommentsCount = {
   MIN: 0,
   MAX: 30
 };
@@ -78,7 +78,7 @@ const createPicture = (index) => ({
   description: getRandomArrayElement(DESCRIPTION),
   likes: getRandomInteger(Likes.MIN, Likes.MAX),
   comments: Array.from(
-    {length: getRandomInteger(Comments_count.MIN, Comments_count.MAX)},
+    {length: getRandomInteger(CommentsCount.MIN, CommentsCount.MAX)},
     createComment
   ),
 });
@@ -89,4 +89,3 @@ const getPictures = () => Array.from(
 );
 getPictures();
 
-console.log(getPictures());
