@@ -86,5 +86,3 @@ const getPictures = () => Array.from(
   (_, index) => createPicture(index + 1)
 );
 getPictures();
-
-console.log(getPictures());
